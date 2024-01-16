@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ThemeProvider } from '@/context/ThemeContext'
+import Header from '@/components/layouts/Header'
+import ReactQueryClientProvider from '@/context/QueryClientContext'
+import { Toaster } from '@/components/ui/sonner'
+import { DataProvider } from '@/context/DataContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +21,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <ReactQueryClientProvider>
+          <DataProvider>
+            <ThemeProvider attribute="class" defaultTheme="system">
+              {/* <Header /> */}
+              {children}
+            </ThemeProvider>
+          </DataProvider>
+        </ReactQueryClientProvider>
+        <Toaster position='top-center' />
+      </body>
+    </html >
   )
 }
