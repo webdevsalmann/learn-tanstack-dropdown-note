@@ -17,13 +17,13 @@
     {
       "id": 1705244053427,
       "title": "Task 1-1",
-      "completed": false,
+      "completed": true,
       "listId": 1705244029701
     },
     {
       "id": 1705244057492,
       "title": "Task 1-2",
-      "completed": false,
+      "completed": true,
       "listId": 1705244029701
     },
     {
